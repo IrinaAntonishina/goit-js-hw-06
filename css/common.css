@@ -35,3 +35,17 @@ button {
   gap: 10px;
   
 }
+
+.boxes_element {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #212121;
+}
+
+#boxes {
+  display: flex;
+  gap: 10px;
+  margin-top: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
