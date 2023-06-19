@@ -3,7 +3,6 @@ const formEl = document.querySelector('.login-form')
 
 formEl.addEventListener('submit', onFormSubmit);
 
-const userData = {};
 
 function onFormSubmit(event){
     event.preventDefault();
@@ -11,11 +10,14 @@ function onFormSubmit(event){
 
     if(email.value === '' || password.value === ''){
         alert('Всі поля повинні бути заповненні!')
+    }else {
+       const userData = {email : email.value,
+        password : password.value,} 
+        console.log(userData);
     }
-   userData.email = email.value;
-   userData.password = password.value;
+   
 
-   console.log(userData);
+  
    event.currentTarget.reset();
 }
 
