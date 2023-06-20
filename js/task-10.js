@@ -15,31 +15,30 @@ const controlsEl = document.querySelector('#controls')
 const number = controlsEl.children[0]
 const btnCreate = controlsEl.children[1]
 const btnDestroy = controlsEl.children[2]
-
 const boxesEl = document.querySelector('#boxes')
 
-const amount = btnCreate.addEventListener('click', () => {
+
+btnCreate.addEventListener('click', () => {
   const value = Number(number.value);
-  // console.log(value)
   createBoxes(value)
 });
 
+
 function createBoxes (amount){
-  
-  const arr = Array.from({length: amount}, (v, k) => k += 1);
-  
-  console.log(arr);
-  
+  let sizes = 30;
+  const elements = [];
+  const arr = Array.from({ length: amount }, (v, k) => k += 1);
+
   for(const elem of arr){
     const divEl = document.createElement('div');
     divEl.classList.add('boxes_element');
   divEl.style.backgroundColor = getRandomHexColor()
-  // divEl.style.width += '10px';
-  // divEl.style.height += '10px';
-
-  boxesEl.append(divEl);
+  divEl.style.width = `${sizes}px`;
+  divEl.style.height = `${sizes}px`;
+  sizes += 10;
+elements.push(divEl);
   }
-
+  boxesEl.append(...elements);
 }
 
 const destroy = btnDestroy.addEventListener('click', () => {
@@ -47,7 +46,6 @@ const destroy = btnDestroy.addEventListener('click', () => {
   number.value = '';
 })
 
-// const arr = Array.from({ length: 10 }, (v, k) => k += 1);
-//   console.log(arr);
+
 
 
